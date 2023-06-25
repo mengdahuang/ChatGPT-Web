@@ -117,7 +117,7 @@ export function SideBar(props: { className?: string }) {
     >
       <div className={styles["sidebar-header"]} data-tauri-drag-region>
         <div className={styles["sidebar-title"]} data-tauri-drag-region>
-          ChatGPT Next
+          <a href="https://blog.itpro.cc">ITPro | Free ChatGPT</a>
         </div>
         <div className={styles["sidebar-sub-title"]}>
           Build your own AI assistant.
@@ -133,13 +133,6 @@ export function SideBar(props: { className?: string }) {
           text={shouldNarrow ? undefined : Locale.Mask.Name}
           className={styles["sidebar-bar-button"]}
           onClick={() => navigate(Path.NewChat, { state: { fromHome: true } })}
-          shadow
-        />
-        <IconButton
-          icon={<PluginIcon />}
-          text={shouldNarrow ? undefined : Locale.Plugin.Name}
-          className={styles["sidebar-bar-button"]}
-          onClick={() => showToast(Locale.WIP)}
           shadow
         />
       </div>
