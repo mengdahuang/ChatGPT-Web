@@ -219,6 +219,13 @@ export function Settings() {
   const resetConfig = config.reset;
   const chatStore = useChatStore();
 
+  const updateStore = useUpdateStore();
+  const [checkingUpdate, setCheckingUpdate] = useState(false);
+  const currentVersion = formatVersionDate(updateStore.version);
+  const remoteId = formatVersionDate(updateStore.remoteVersion);
+  const hasNewVersion = currentVersion !== remoteId;
+
+
   const usage = {
     used: updateStore.used,
     subscription: updateStore.subscription,
@@ -246,8 +253,6 @@ export function Settings() {
   const showUsage = accessStore.isAuthorized();
   useEffect(() => {
     // checks per minutes
-    checkUpdate();
-    showUsage && checkUsage();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
